@@ -1,0 +1,27 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800">
+      <stop offset="0" stop-color="#090909"/>
+      <stop offset="1" stop-color="#0F0F0F"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF2D2D"/>
+      <stop offset="1" stop-color="#B30000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="32" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="680" rx="26" fill="#111111" stroke="#1E1E1E" stroke-width="2"/>
+  <rect x="120" y="120" width="280" height="22" rx="11" fill="url(#accent)"/>
+  <rect x="120" y="160" width="380" height="12" rx="6" fill="#CFCFCF" fill-opacity="0.35"/>
+  <rect x="120" y="220" width="460" height="220" rx="20" fill="#141414" stroke="#262626"/>
+  <rect x="620" y="220" width="460" height="220" rx="20" fill="#141414" stroke="#262626"/>
+  <rect x="120" y="480" width="300" height="180" rx="18" fill="#141414" stroke="#262626"/>
+  <rect x="460" y="480" width="300" height="180" rx="18" fill="#141414" stroke="#262626"/>
+  <rect x="800" y="480" width="300" height="180" rx="18" fill="#141414" stroke="#262626"/>
+  <text x="120" y="730" fill="#FF2D2D" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="600">
+    PORTFOLIO FULL STACK
+  </text>
+  <text x="120" y="764" fill="#BDBDBD" font-family="Space Grotesk, Arial, sans-serif" font-size="16">
+    Experiencia premium com foco em performance e conversao.
+  </text>
+</svg>

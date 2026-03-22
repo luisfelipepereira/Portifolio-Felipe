@@ -1,0 +1,28 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A1A1A"/>
+      <stop offset="0.55" stop-color="#0D0D0D"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF2D2D"/>
+      <stop offset="1" stop-color="#7A0C0C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="32" fill="url(#bg)"/>
+  <rect x="48" y="48" width="704" height="424" rx="24" fill="#0F0F0F" stroke="url(#accent)" stroke-width="2"/>
+  <rect x="96" y="110" width="280" height="18" rx="9" fill="#FF2D2D" fill-opacity="0.6"/>
+  <rect x="96" y="152" width="200" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.2"/>
+  <rect x="96" y="200" width="520" height="170" rx="16" fill="#151515" stroke="#2A2A2A"/>
+  <rect x="120" y="224" width="140" height="14" rx="7" fill="#FF2D2D" fill-opacity="0.45"/>
+  <rect x="120" y="254" width="240" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.2"/>
+  <rect x="120" y="276" width="220" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.16"/>
+  <rect x="120" y="320" width="140" height="36" rx="18" fill="url(#accent)"/>
+  <text x="96" y="406" fill="#F5F5F5" font-family="Space Grotesk, Arial, sans-serif" font-size="28" font-weight="600">
+    SaaS Premium Dashboard
+  </text>
+  <text x="96" y="440" fill="#BDBDBD" font-family="Space Grotesk, Arial, sans-serif" font-size="16">
+    Visual moderno, dados em tempo real e automacoes.
+  </text>
+</svg>

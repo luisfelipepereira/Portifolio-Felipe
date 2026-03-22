@@ -1,0 +1,36 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A0A0A"/>
+      <stop offset="0.6" stop-color="#111111"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D6B25E"/>
+      <stop offset="1" stop-color="#9B6C20"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" rx="40" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1280" height="780" rx="28" fill="#0E0E0E" stroke="#1B1B1B" stroke-width="2"/>
+  <rect x="120" y="120" width="220" height="18" rx="9" fill="url(#gold)"/>
+  <rect x="120" y="160" width="320" height="12" rx="6" fill="#CFCFCF" fill-opacity="0.4"/>
+  <rect x="120" y="220" width="1160" height="240" rx="18" fill="#141414" stroke="#232323"/>
+  <rect x="160" y="260" width="280" height="40" rx="20" fill="url(#gold)"/>
+  <rect x="160" y="320" width="520" height="14" rx="7" fill="#CFCFCF" fill-opacity="0.25"/>
+  <rect x="160" y="350" width="460" height="14" rx="7" fill="#CFCFCF" fill-opacity="0.2"/>
+  <rect x="120" y="500" width="360" height="200" rx="16" fill="#131313" stroke="#232323"/>
+  <rect x="520" y="500" width="360" height="200" rx="16" fill="#131313" stroke="#232323"/>
+  <rect x="920" y="500" width="360" height="200" rx="16" fill="#131313" stroke="#232323"/>
+  <rect x="150" y="540" width="180" height="12" rx="6" fill="#CFCFCF" fill-opacity="0.3"/>
+  <rect x="150" y="570" width="220" height="10" rx="5" fill="#CFCFCF" fill-opacity="0.2"/>
+  <rect x="550" y="540" width="180" height="12" rx="6" fill="#CFCFCF" fill-opacity="0.3"/>
+  <rect x="550" y="570" width="220" height="10" rx="5" fill="#CFCFCF" fill-opacity="0.2"/>
+  <rect x="950" y="540" width="180" height="12" rx="6" fill="#CFCFCF" fill-opacity="0.3"/>
+  <rect x="950" y="570" width="220" height="10" rx="5" fill="#CFCFCF" fill-opacity="0.2"/>
+  <text x="120" y="730" fill="#D6B25E" font-family="Space Grotesk, Arial, sans-serif" font-size="36" font-weight="600">
+    BARBER CLUB PREMIUM
+  </text>
+  <text x="120" y="770" fill="#BDBDBD" font-family="Space Grotesk, Arial, sans-serif" font-size="18">
+    Experiencia sob medida com estilo, precision e atendimento exclusivo.
+  </text>
+</svg>
