@@ -1247,7 +1247,7 @@ textarea:focus {
     display: none;
   }
 
-  .theme-toggle {
+  .theme-toggle:not(.mobile-theme-toggle) {
     display: none;
   }
 
