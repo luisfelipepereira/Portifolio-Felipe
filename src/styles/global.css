@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+/* HEADER */
+/* HEADER */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  font-weight: bold;
+  font-size: 30px;
+  color: #1c168f;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+/* underline animado */
+.nav-links a .underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #6c63ff;
+  transition: 0.3s;
+}
+
+.nav-links a:hover .underline,
+.nav-links a.active .underline {
+  width: 100%;
+}
+.nav-links a {
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #6c63ff;
+  text-shadow: 0 0 10px #6c63ff;
+}
+
+/* BOTÃO */
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* MENU MOBILE */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100vh;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 20px;
+}
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #6c63ff;
+  transition: 0.3s;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* BOTÃO FECHAR */
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #6c63ff;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+section {
+  padding: 80px 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  opacity: 0.8;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #6c63ff;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.project-card {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  transition: 0.3s;
+  transform-style: preserve-3d;
+}
+
+/* HOVER */
+.project-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* TEXTO */
+.project-card h3 {
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+/* TAGS */
+.tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tags span {
+  background: #222;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* BOTÃO */
+.project-card .btn {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* FEATURED PROJECT */
+.featured-project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* IMAGEM */
+.featured-image img {
+  width: 100%;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+/* HOVER NA IMAGEM */
+.featured-image img:hover {
+  transform: scale(1.05);
+}
+
+/* TEXTO */
+.featured-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.featured-content p {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+/* BOTÕES */
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* BOTÃO OUTLINE */
+.btn.outline {
+  background: transparent;
+  border: 1px solid #6c63ff;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .featured-project {
+    grid-template-columns: 1fr;
+  }
+}
