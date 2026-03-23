@@ -1,27 +1,25 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "../ui/AnimatedSection";
-import { stagger } from "../../utils/animations";
 import site1 from "../../assets/imagenssite/site1.png";
 import site2 from "../../assets/imagenssite/site2.png";
 import site3 from "../../assets/imagenssite/site3.png";
 
-const frameVariants = {
+const projectVariants = {
   hidden: {
     opacity: 0,
-    y: 30,
-    "--frame-opacity": 0,
-    "--frame-scale": 0.94,
+    y: 72,
+    scale: 0.9,
   },
-  show: {
+  show: (index) => ({
     opacity: 1,
     y: 0,
-    "--frame-opacity": 1,
-    "--frame-scale": 1,
+    scale: 1,
     transition: {
-      duration: 0.6,
+      duration: 0.78,
+      delay: index * 0.12,
       ease: [0.22, 1, 0.36, 1],
     },
-  },
+  }),
 };
 
 const projects = [
@@ -57,26 +55,24 @@ export default function Projects() {
           </AnimatedSection>
         </div>
 
-        <motion.div
-          className="projects-grid"
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {projects.map((project) => (
+        <div className="projects-grid">
+          {projects.map((project, index) => (
             <motion.a
               key={project.title}
               className="project-shot"
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              variants={frameVariants}
+              custom={index}
+              variants={projectVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.35 }}
             >
               <img src={project.image} alt={`Preview ${project.title}`} />
             </motion.a>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
