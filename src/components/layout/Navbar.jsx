@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import useScroll from "../../hooks/useScroll";
 import useScrollSpy from "../../hooks/useScrollSpy";
 import SocialButtons from "../ui/SocialButtons";
+import logoFelipe from "../../assets/images/logo-felipe-transparent.png";
 
 const links = [
   { name: "Inicio", id: "inicio" },
@@ -54,7 +55,7 @@ export default function Navbar() {
     >
       <nav className="container nav">
         <a href="#inicio" className="logo">
-          Luiz Felipe <span>DEV</span>
+          <img src={logoFelipe} alt="Logo Felipe Dev" />
         </a>
 
         <div className="nav-links">

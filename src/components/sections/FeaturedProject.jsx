@@ -4,16 +4,15 @@ import Button from "../ui/Button";
 import Card from "../ui/Card";
 import ContactButton from "../ui/ContactButton";
 import { fadeUp, slideIn } from "../../utils/animations";
-import featuredImage from "../../assets/images/project-featured.svg";
-import { SOCIAL_LINKS } from "../../utils/social";
+import featuredImage from "../../assets/images/fptechsolutions-featured.png";
 
 const project = {
-  title: "Plataforma SaaS para automacao de vendas",
+  title: "FP Tech Solutions",
   description:
-    "Sistema completo com painel administrativo, automacoes de marketing, integracao com gateways de pagamento e metricas em tempo real.",
-  tech: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker"],
-  results: ["+38% conversao", "99.9% uptime", "Setup em 48h"],
-  repo: SOCIAL_LINKS.github,
+    "Projeto de site institucional moderno com foco em performance, credibilidade e apresentacao profissional de servicos digitais.",
+  tech: ["React", "Node.js", "PostgreSQL", "tailwindcss"],
+  results: ["+38% conversao", "99.9% uptime"],
+  liveUrl: "https://fptechsolutions.vercel.app/",
 };
 
 export default function FeaturedProject() {
@@ -33,8 +32,8 @@ export default function FeaturedProject() {
             variants={slideIn("left", 80)}
           >
             <Card className="featured-image" glow>
-              <img src={featuredImage} alt="Preview do projeto em destaque" />
-              <div className="featured-badge">SaaS Premium</div>
+              <img src={featuredImage} alt="Preview do projeto FP Tech Solutions" />
+              <div className="featured-badge">Destaque</div>
             </Card>
           </AnimatedSection>
 
@@ -59,8 +58,8 @@ export default function FeaturedProject() {
 
             <div className="featured-actions">
               <ContactButton>Iniciar projeto</ContactButton>
-              <Button href={project.repo} variant="outline" target="_blank" rel="noreferrer">
-                Ver GitHub
+              <Button href={project.liveUrl} variant="outline" target="_blank" rel="noreferrer">
+                Ver projeto
               </Button>
             </div>
           </AnimatedSection>
