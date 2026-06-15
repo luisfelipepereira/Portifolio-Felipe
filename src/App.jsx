@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Home from "./pages/Home";
 import { Analytics } from "@vercel/analytics/react";
 
