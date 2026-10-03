@@ -19,7 +19,7 @@ const socials = [
   },
 ];
 
-export default function SocialButtons({ className = "" }) {
+export default function SocialButtons({ className = "", showLabels = false }) {
   return (
     <div className={`social-buttons ${className}`.trim()}>
       {socials.map((social) => {
@@ -32,8 +32,10 @@ export default function SocialButtons({ className = "" }) {
             rel="noreferrer"
             className="social-button"
             aria-label={social.label}
+            title={social.label}
           >
             <Icon />
+            {showLabels && <span>{social.label}</span>}
           </a>
         );
       })}

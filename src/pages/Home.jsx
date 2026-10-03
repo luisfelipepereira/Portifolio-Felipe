@@ -7,17 +7,19 @@ import Dashboard from "../components/sections/Dashboard";
 import Frames from "../components/sections/Frames";
 import Contact from "../components/sections/Contact";
 import GithubSection from "../components/sections/GithubSection";
+import Stack from "../components/sections/Stack";
 
 export default function Home() {
   return (
     <Layout>
       <Hero />
-      <Dashboard />
       <About />
-      <FeaturedProject />
-      <Projects />
-      <GithubSection />
       <Frames />
+      <Stack />
+      <Projects />
+      <FeaturedProject />
+      <Dashboard />
+      <GithubSection />
       <Contact />
     </Layout>
   );

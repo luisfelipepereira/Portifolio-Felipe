@@ -1,19 +1,20 @@
-import { motion } from "framer-motion";
+import { useMemo } from "react";
+import { motion as Motion } from "framer-motion";
 import Button from "../ui/Button";
 import AnimatedSection from "../ui/AnimatedSection";
-import ContactButton from "../ui/ContactButton";
 import SocialButtons from "../ui/SocialButtons";
 import useTypewriter from "../../hooks/useTypewriter";
-import profileImage from "../../assets/images/profile.png";
+import featuredImage from "../../assets/imagenssite/site1.png";
+import mobilePreview from "../../assets/images/barbearia-mobile.svg";
 import { slideIn, fadeIn } from "../../utils/animations";
-import { SOCIAL_LINKS } from "../../utils/social";
 
 export default function Hero() {
-  const typedText = useTypewriter([
+  const roles = useMemo(() => [
     "Desenvolvedor Full Stack",
-    "Especialista em React e Node.js",
-    "Interfaces premium e escalaveis",
-  ]);
+    "Desenvolvedor Web",
+    "Interfaces responsivas",
+  ], []);
+  const typedText = useTypewriter(roles);
 
   return (
     <section id="inicio" className="hero">
@@ -22,60 +23,56 @@ export default function Hero() {
           className="hero-content"
           variants={slideIn("left", 80)}
         >
-          <span className="hero-eyebrow">Disponivel para novos projetos</span>
+          <span className="hero-eyebrow">Full Stack Developer</span>
           <h1 className="hero-title">Luiz Felipe</h1>
           <h2 className="hero-role">
             <span className="typewriter">{typedText}</span>
             <span className="cursor" aria-hidden="true" />
           </h2>
           <p className="hero-description">
-            Desenvolvo produtos digitais com foco em performance, conversao e
-            experiencia de usuario. Solucoes full stack com design premium,
-            escalabilidade e codigo limpo.
+            Transformo ideias em experiências digitais modernas, cuidando da
+            interface, da lógica e dos detalhes que tornam cada produto simples
+            de usar.
           </p>
 
           <div className="hero-actions">
-            <ContactButton size="lg">Iniciar projeto</ContactButton>
+            <Button href="#projetos" size="lg">Ver projetos</Button>
             <Button
-              href={SOCIAL_LINKS.github}
+              href="#contato"
               variant="outline"
               size="lg"
-              target="_blank"
-              rel="noreferrer"
             >
-              Ver GitHub
+              Entre em contato
             </Button>
           </div>
 
           <SocialButtons className="hero-socials" />
         </AnimatedSection>
 
-        <motion.div
-          className="hero-card"
+        <Motion.div
+          className="hero-showcase"
           variants={fadeIn}
           initial="hidden"
           animate="show"
+          aria-label="Prévia do projeto Barbearia Premium em desktop e mobile"
         >
-          <div className="hero-image">
-            <img src={profileImage} alt="Foto de Luiz Felipe" />
+          <a className="hero-browser" href="https://webboostdev.github.io/baroesbarber/" target="_blank" rel="noreferrer" aria-label="Conheça o projeto Barbearia Premium">
+            <div className="browser-chrome" aria-hidden="true"><span /><span /><span /><i>barbearia-premium</i></div>
+            <div className="hero-image"><img src={featuredImage} alt="Prévia do site Barbearia Premium" fetchPriority="high" /></div>
+          </a>
+          <div className="hero-phone" aria-hidden="true">
+            <div className="phone-speaker" />
+            <img src={mobilePreview} alt="" />
           </div>
-          <div className="hero-card-content">
-            <p className="hero-card-title">Full Stack Engineer</p>
-            <p className="hero-card-subtitle">
-              React, Node, APIs escalaveis e UX premium.
-            </p>
-            <div className="hero-stats">
-              <div>
-                <span>+5</span>
-                <small>Projetos entregues</small>
-              </div>
-              <div>
-                <span>2 anos</span>
-                <small>Experiencia</small>
-              </div>
-            </div>
+          <div className="hero-float-chip chip-react"><span>⚛</span> React</div>
+          <div className="hero-float-chip chip-js"><span>JS</span> JavaScript</div>
+          <div className="hero-showcase-caption">
+            <span className="showcase-status" />
+            <span>Projeto em destaque</span>
+            <span className="showcase-caption-line" />
+            <span>01 / 04</span>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
 
       <div className="hero-blur" aria-hidden="true" />

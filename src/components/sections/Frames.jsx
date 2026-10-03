@@ -1,52 +1,44 @@
-import { useState } from "react";
+import { createElement } from "react";
+import { motion as Motion } from "framer-motion";
+import { FaCode, FaCompassDrafting, FaLayerGroup } from "react-icons/fa6";
+import { FiLayout, FiServer } from "react-icons/fi";
 import AnimatedSection from "../ui/AnimatedSection";
 import { fadeUp, stagger } from "../../utils/animations";
-import { motion } from "framer-motion";
 
-const frames = [
+const capabilities = [
   {
-    tag: "Automacao",
-    title: "Fluxos inteligentes",
-    description: "Automatize processos e conecte dados em tempo real.",
+    number: "01",
+    title: "Frontend",
+    description: "Interfaces responsivas e componentes React com atenção a cada estado.",
+    icon: FiLayout,
   },
   {
-    tag: "Design",
-    title: "Experiencias premium",
-    description: "Interfaces fluidas com foco em conversao e usabilidade.",
+    number: "02",
+    title: "Backend",
+    description: "Lógica de aplicação, APIs e integração entre interface e serviços.",
+    icon: FiServer,
   },
   {
-    tag: "Performance",
-    title: "Velocidade maxima",
-    description: "Arquitetura otimizada para escalar com seguranca.",
+    number: "03",
+    title: "UI / UX",
+    description: "Hierarquia, navegação e interações pensadas para pessoas reais.",
+    icon: FaCompassDrafting,
   },
   {
-    tag: "Dados",
-    title: "Insights acionaveis",
-    description: "Dashboards com indicadores que guiam decisoes.",
+    number: "04",
+    title: "Sistemas web",
+    description: "Experiências completas que conectam interface, dados e funcionalidades.",
+    icon: FaLayerGroup,
   },
 ];
 
-function FrameCard({ tag, title, description }) {
-  const [coords, setCoords] = useState({ x: 50, y: 50 });
-
-  const handleMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-    setCoords({ x, y });
-  };
-
+function CapabilityCard({ number, title, description, icon: CapabilityIcon }) {
   return (
-    <div
-      className="frame-card"
-      onMouseMove={handleMove}
-      onMouseLeave={() => setCoords({ x: 50, y: 50 })}
-      style={{ "--x": `${coords.x}%`, "--y": `${coords.y}%` }}
-    >
-      <span className="frame-tag">{tag}</span>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
+    <article className="frame-card capability-card">
+      <div className="capability-topline"><span>{number}</span>{createElement(CapabilityIcon, { "aria-hidden": true })}</div>
+      <div className="capability-copy"><p className="frame-tag">Área de atuação</p><h3>{title}</h3><p>{description}</p></div>
+      <FaCode className="capability-mark" aria-hidden="true" />
+    </article>
   );
 }
 
@@ -56,28 +48,27 @@ export default function Frames() {
       <div className="container">
         <div className="section-heading">
           <AnimatedSection>
-            <p className="section-tag">Frames</p>
-            <h2>Interatividade que surpreende</h2>
+            <p className="section-tag">O que eu faço</p>
+            <h2>Transformo ideias em produtos digitais.</h2>
             <p className="section-subtitle">
-              Componentes com efeitos customizados em JavaScript para criar
-              experiencias memoraveis.
+              Da primeira tela às funcionalidades que fazem uma aplicação funcionar.
             </p>
           </AnimatedSection>
         </div>
 
-        <motion.div
+        <Motion.div
           className="frames-grid"
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {frames.map((frame) => (
-            <motion.div key={frame.title} variants={fadeUp}>
-              <FrameCard {...frame} />
-            </motion.div>
+          {capabilities.map((capability) => (
+            <Motion.div key={capability.title} variants={fadeUp}>
+              <CapabilityCard {...capability} />
+            </Motion.div>
           ))}
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

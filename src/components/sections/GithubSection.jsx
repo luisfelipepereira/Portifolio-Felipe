@@ -9,16 +9,17 @@ import Button from "../ui/Button";
 import ContactButton from "../ui/ContactButton";
 import { slideIn } from "../../utils/animations";
 import { SOCIAL_LINKS } from "../../utils/social";
+import profileImage from "../../assets/images/profile.png";
 
 const USERNAME = "luisfelipepereira";
 
 const fallbackProfile = {
   name: "Luiz Felipe",
-  bio: "Desenvolvedor Full Stack",
-  avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-  public_repos: 0,
-  followers: 0,
-  following: 0,
+  bio: "Perfil e repositórios públicos no GitHub.",
+  avatar_url: profileImage,
+  public_repos: null,
+  followers: null,
+  following: null,
 };
 
 export default function GithubSection() {
@@ -44,7 +45,7 @@ export default function GithubSection() {
           setProfile(profileData);
           setStatus("ready");
         }
-      } catch (error) {
+      } catch {
         if (isMounted) {
           setStatus("error");
         }
@@ -57,31 +58,27 @@ export default function GithubSection() {
     };
   }, []);
 
-  const languages =
-    profile?.language || "JavaScript / TypeScript";
-
   return (
     <section id="github" className="section section-github">
       <div className="container">
         <div className="section-heading">
           <AnimatedSection>
             <p className="section-tag">GitHub / Open Source</p>
-            <h2>Contribuicoes reais e projetos de alto nivel</h2>
+            <h2>Encontre meus projetos e código</h2>
             <p className="section-subtitle">
-              Uma visao direta do meu trabalho no GitHub, repositorios em
-              destaque e principais tecnologias.
+              Consulte meu perfil e os repositórios públicos diretamente no GitHub.
             </p>
           </AnimatedSection>
         </div>
 
-        <div className="github-grid github-grid-single">
+        <div className="github-showcase">
           <AnimatedSection
             className="github-profile"
             variants={slideIn("left", 80)}
           >
             <Card className="github-card" glow>
               <div className="github-avatar">
-                <img src={profile.avatar_url} alt={profile.name} />
+                <img src={profile.avatar_url || profileImage} alt={`Foto de ${profile.name || "Luiz Felipe"}`} />
               </div>
               <div>
                 <h3>{profile.name}</h3>
@@ -90,22 +87,19 @@ export default function GithubSection() {
               <div className="github-stats">
                 <div>
                   <FaBookOpen />
-                  <span>{profile.public_repos}</span>
-                  <small>Repos</small>
+                  <span>{profile.public_repos ?? "—"}</span>
+                  <small>Repositórios</small>
                 </div>
                 <div>
                   <FaUsers />
-                  <span>{profile.followers}</span>
-                  <small>Followers</small>
+                  <span>{profile.followers ?? "—"}</span>
+                  <small>Seguidores</small>
                 </div>
                 <div>
                   <FaUsers />
-                  <span>{profile.following}</span>
+                  <span>{profile.following ?? "—"}</span>
                   <small>Seguindo</small>
                 </div>
-              </div>
-              <div className="github-languages">
-                <span>{languages}</span>
               </div>
               <div className="github-actions">
                 <Button
@@ -124,6 +118,17 @@ export default function GithubSection() {
                 </p>
               )}
             </Card>
+          </AnimatedSection>
+          <AnimatedSection className="terminal-panel" delay={0.12}>
+            <div className="terminal-topbar"><span /><span /><span /><small>terminal — visualização ilustrativa</small></div>
+            <div className="terminal-code" aria-label="Exemplo visual de comandos de desenvolvimento, não são registros reais">
+              <p><span>$</span> npm run build</p>
+              <p className="terminal-muted">✓ Build concluído</p>
+              <p><span>$</span> git push origin main</p>
+              <p className="terminal-muted">↗ Código enviado ao repositório</p>
+              <p><span>$</span> <i className="terminal-cursor" /></p>
+            </div>
+            <p className="terminal-caption">Uma representação visual do fluxo de desenvolvimento. Não corresponde a uma execução em tempo real.</p>
           </AnimatedSection>
         </div>
       </div>

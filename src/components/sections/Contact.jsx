@@ -14,12 +14,15 @@ export default function Contact() {
         <div className="section-heading">
           <AnimatedSection>
             <p className="section-tag">Contato</p>
-            <h2>Vamos falar sobre seu proximo projeto</h2>
+            <h2>Tem uma ideia? Vamos construir.</h2>
             <p className="section-subtitle">
-              Me conte sua ideia e eu retorno com a melhor solucao full stack
-              para o seu negocio.
+              Conte um pouco sobre o que você quer criar e vamos conversar.
             </p>
           </AnimatedSection>
+          <div className="contact-end-actions">
+            <ContactButton>Entrar em contato</ContactButton>
+            <Button href="#projetos" variant="outline">Ver projetos</Button>
+          </div>
         </div>
 
         <div className="contact-grid">
@@ -65,7 +68,6 @@ export default function Contact() {
                   <FaGithub /> GitHub
                 </Button>
               </div>
-              <p className="contact-note">Resposta media: 24h.</p>
             </Card>
           </AnimatedSection>
 
@@ -75,7 +77,7 @@ export default function Contact() {
           >
             <Card className="contact-profile-card" glow>
               <div className="contact-avatar">
-                <img src={profileImage} alt="Luiz Felipe" />
+                <img src={profileImage} alt="Luiz Felipe" loading="lazy" decoding="async" />
               </div>
               <div>
                 <h3>Luiz Felipe</h3>
@@ -83,7 +85,7 @@ export default function Contact() {
               </div>
               <div className="contact-badges">
                 <span>React</span>
-                <span>Node.js</span>
+                <span>JavaScript</span>
                 <span>UX</span>
               </div>
               <p className="contact-mini">

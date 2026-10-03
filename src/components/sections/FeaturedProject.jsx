@@ -1,17 +1,14 @@
-import { motion } from "framer-motion";
 import AnimatedSection from "../ui/AnimatedSection";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
 import ContactButton from "../ui/ContactButton";
-import { fadeUp, slideIn } from "../../utils/animations";
+import { slideIn } from "../../utils/animations";
 import featuredImage from "../../assets/images/fptechsolutions-featured.png";
 
 const project = {
   title: "FP Tech Solutions",
   description:
-    "Projeto de site institucional moderno com foco em performance, credibilidade e apresentacao profissional de servicos digitais.",
-  tech: ["React", "Node.js", "PostgreSQL", "tailwindcss"],
-  results: ["+38% conversao", "99.9% uptime"],
+    "Site institucional da FP Tech Solutions, apresentado para organizar a presença digital da marca e tornar seus serviços mais fáceis de conhecer.",
   liveUrl: "https://fptechsolutions.vercel.app/",
 };
 
@@ -22,7 +19,7 @@ export default function FeaturedProject() {
         <div className="section-heading">
           <AnimatedSection>
             <p className="section-tag">Projeto em destaque</p>
-            <h2>Produto premium com design e engenharia impecaveis</h2>
+            <h2>Uma vitrine digital pensada para apresentar uma marca.</h2>
           </AnimatedSection>
         </div>
 
@@ -32,8 +29,9 @@ export default function FeaturedProject() {
             variants={slideIn("left", 80)}
           >
             <Card className="featured-image" glow>
-              <img src={featuredImage} alt="Preview do projeto FP Tech Solutions" />
-              <div className="featured-badge">Destaque</div>
+              <div className="featured-browserbar" aria-hidden="true"><span /><span /><span /><i>fptechsolutions.vercel.app</i></div>
+              <img src={featuredImage} alt="Captura de tela do site FP Tech Solutions" loading="lazy" decoding="async" />
+              <div className="featured-badge">FP Tech Solutions</div>
             </Card>
           </AnimatedSection>
 
@@ -44,23 +42,16 @@ export default function FeaturedProject() {
             <h3>{project.title}</h3>
             <p>{project.description}</p>
 
-            <div className="featured-tech">
-              {project.tech.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
+            <div className="featured-case-notes">
+              <div><span>FOCO</span><p>Apresentação institucional e identidade digital.</p></div>
+              <div><span>ABORDAGEM</span><p>Conteúdo organizado em uma experiência web objetiva.</p></div>
             </div>
 
-            <motion.div className="featured-results" variants={fadeUp}>
-              {project.results.map((result) => (
-                <div key={result}>{result}</div>
-              ))}
-            </motion.div>
-
             <div className="featured-actions">
-              <ContactButton>Iniciar projeto</ContactButton>
               <Button href={project.liveUrl} variant="outline" target="_blank" rel="noreferrer">
                 Ver projeto
               </Button>
+              <ContactButton>Conversar sobre um projeto</ContactButton>
             </div>
           </AnimatedSection>
         </div>

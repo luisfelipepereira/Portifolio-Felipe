@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import useScroll from "../../hooks/useScroll";
 import useScrollSpy from "../../hooks/useScrollSpy";
 import SocialButtons from "../ui/SocialButtons";
@@ -8,17 +8,15 @@ import logoFelipe from "../../assets/images/logo-felipe-transparent.png";
 const links = [
   { name: "Inicio", id: "inicio" },
   { name: "Sobre", id: "sobre" },
-  { name: "Destaque", id: "destaque" },
-  { name: "Dashboard", id: "dashboard" },
+  { name: "O que faço", id: "frames" },
+  { name: "Stack", id: "stack" },
   { name: "Projetos", id: "projetos" },
   { name: "GitHub", id: "github" },
-  { name: "Frames", id: "frames" },
   { name: "Contato", id: "contato" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
   const scrolled = useScroll(24);
   const sectionIds = useMemo(() => links.map((link) => link.id), []);
   const active = useScrollSpy(sectionIds);
@@ -31,23 +29,11 @@ export default function Navbar() {
   }, [open]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
-    setTheme(initialTheme);
+    document.documentElement.dataset.theme = "dark";
   }, []);
 
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.documentElement.dataset.theme = theme;
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", theme);
-    }
-  }, [theme]);
-
   return (
-    <motion.header
+    <Motion.header
       className={`header ${scrolled ? "scrolled" : ""}`}
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
@@ -69,7 +55,7 @@ export default function Navbar() {
             >
               <span>{link.name}</span>
               {active === link.id && (
-                <motion.span
+                <Motion.span
                   layoutId="nav-indicator"
                   className="nav-indicator"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
@@ -80,18 +66,6 @@ export default function Navbar() {
         </div>
 
         <SocialButtons className="nav-socials" />
-
-        <button
-          className="theme-toggle"
-          onClick={() =>
-            setTheme((prev) => (prev === "dark" ? "light" : "dark"))
-          }
-          aria-label={`Ativar tema ${theme === "dark" ? "claro" : "escuro"}`}
-        >
-          <span className="theme-label">
-            {theme === "dark" ? "Claro" : "Escuro"}
-          </span>
-        </button>
 
         <button
           className={`menu-toggle ${open ? "is-open" : ""}`}
@@ -108,14 +82,14 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <>
-            <motion.div
+            <Motion.div
               className="menu-overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
-            <motion.aside
+            <Motion.aside
               id="mobile-menu"
               className="mobile-panel"
               initial={{ x: "100%", opacity: 0 }}
@@ -147,23 +121,11 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <button
-                className="theme-toggle mobile-theme-toggle"
-                onClick={() =>
-                  setTheme((prev) => (prev === "dark" ? "light" : "dark"))
-                }
-                aria-label={`Ativar tema ${theme === "dark" ? "claro" : "escuro"}`}
-              >
-                <span className="theme-label">
-                  {theme === "dark" ? "Claro" : "Escuro"}
-                </span>
-              </button>
-
               <SocialButtons className="mobile-socials" />
-            </motion.aside>
+            </Motion.aside>
           </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </Motion.header>
   );
 }
